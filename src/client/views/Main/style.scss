@@ -1,0 +1,16 @@
+/* Make sure body rule is not exported in package. */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+.tiles-main-contain {
+  border: 1px solid #000;
+  box-sizing: border-box;
+  height: 100vh;
+
+  display: flex;
+  flex: 1 1 0;
+  flex-wrap: wrap;
+}
