@@ -25,6 +25,7 @@
   "homepage": "https://github.com/j0nas/track-repo-updates#readme",
   "dependencies": {
     "body-parser": "^1.16.1",
+    "classnames": "^2.2.5",
     "express": "^4.14.1",
     "offline-plugin": "^4.6.1",
     "react": "^15.4.2",
