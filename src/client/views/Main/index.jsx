@@ -3,15 +3,16 @@ import Tile from '../../components/Tile';
 import Row from '../../components/Row';
 import Tileset from '../../components/Tileset';
 
-import TodaysDateTile from '../../components/hocTiles/TodaysDateTile';
+import DateTile from '../../components/hocTiles/DateTile';
 import MailTile from '../../components/hocTiles/MailTile';
+import WeatherTile from '../../components/hocTiles/WeatherTile';
 import './style.scss';
 
 const MainView = () =>
   <div className="tiles-main-contain">
     <Tileset>
       <Row>
-        <TodaysDateTile />
+        <DateTile />
         <MailTile />
       </Row>
       <Row>
@@ -29,10 +30,7 @@ const MainView = () =>
         />
       </Row>
       <Row>
-        <Tile centerText={false}>
-          <span className="tiles-tile-content-header">-4</span>
-          <span className="tiles-tile-align-bottom">Oslo</span>
-        </Tile>
+        <WeatherTile />
         <Tile bottomText="Telefonassistent" />
         <Tile bottomText="Twitter" colorName="#4099FF" />
       </Row>

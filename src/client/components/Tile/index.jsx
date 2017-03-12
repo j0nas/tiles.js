@@ -11,6 +11,8 @@ const Tile = ({
   imgSrc,
   bottomText,
   colorName,
+
+  topText,
 }) => {
   const classes = classNames({
     'tiles-tile': true,
@@ -21,6 +23,7 @@ const Tile = ({
   });
   return (
     <div className={classes} style={colorName ? { backgroundColor: colorName } : {}}>
+      {topText && <span className="tiles-tile-top-text">{topText}</span>}
       {children}
       {imgSrc && <img src={imgSrc} alt="" />}
       {bottomText && <span className="tiles-tile-align-bottom">{bottomText}</span>}
@@ -36,6 +39,7 @@ Tile.propTypes = {
   imgSrc: React.PropTypes.string,
   bottomText: React.PropTypes.string,
   colorName: React.PropTypes.string,
+  topText: React.PropTypes.string,
 };
 
 Tile.defaultProps = {
@@ -46,6 +50,7 @@ Tile.defaultProps = {
   bottomText: '',
   children: '',
   colorName: '',
+  topText: '',
 };
 
 export default Tile;
