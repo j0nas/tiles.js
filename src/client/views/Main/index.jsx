@@ -2,18 +2,15 @@ import React from 'react';
 import Tile from '../../components/Tile';
 import Row from '../../components/Row';
 import Tileset from '../../components/Tileset';
+
+import TodaysDateTile from '../../components/hocTiles/TodaysDateTile';
 import './style.scss';
 
 const MainView = () =>
   <div className="tiles-main-contain">
     <Tileset>
       <Row>
-        <Tile>
-          <div>
-            <div>onsdag</div>
-            <div style={{ fontSize: 44 }}>8</div>
-          </div>
-        </Tile>
+        <TodaysDateTile />
         <Tile columnCount={2} centerText={false}>
           <div className="tiles-tile-content-header">Smashing Magazine</div>
           <div>Smasing Newsletter #177: Sketch On Windows, CSS and Chatbots</div>
