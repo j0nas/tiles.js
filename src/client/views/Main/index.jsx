@@ -20,11 +20,7 @@ const MainView = () =>
         </Tile>
       </Row>
       <Row>
-        <Tile
-          columnCount={2}
-          centerText={false}
-          bottomText="Microsoft Edge"
-        >
+        <Tile columnCount={2} bottomText="Microsoft Edge">
           <div>
             <div className="tiles-tile-center-image">
               <img src="https://maxcdn.icons8.com/Share/icon/win8/Logos//ms_edge1600.png" alt="edge" />
