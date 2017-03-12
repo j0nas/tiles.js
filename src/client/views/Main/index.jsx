@@ -18,24 +18,35 @@ const MainView = () =>
       </Tile>
     </Row>
     <Row>
-      <Tile columnCount={2} centerText={false}>
+      <Tile
+        columnCount={2}
+        centerText={false}
+        bottomText="Microsoft Edge"
+      >
         <div>
           <div className="tiles-tile-center-image">
             <img src="https://maxcdn.icons8.com/Share/icon/win8/Logos//ms_edge1600.png" alt="edge" />
           </div>
         </div>
-        <div className="tiles-tile-align-bottom">Microsoft Edge</div>
       </Tile>
-      <Tile padText={false}>
-        <img src="https://pbs.twimg.com/profile_images/562466745340817408/_nIu8KHX.jpeg" alt="cat" />
-        <span className="tiles-tile-align-bottom">Bilder</span>
-      </Tile>
+      <Tile
+        padText={false}
+        imgSrc="https://pbs.twimg.com/profile_images/562466745340817408/_nIu8KHX.jpeg"
+        bottomText="Bilder"
+      />
     </Row>
     <Row>
       <Tile centerText={false}>
         <span className="tiles-tile-content-header">-4</span>
         <span className="tiles-tile-align-bottom">Oslo</span>
       </Tile>
+      <Tile bottomText="Telefonassistent" />
+      <Tile bottomText="Twitter" colorName="#4099FF" />
+    </Row>
+    <Row>
+      <Tile bottomText="Store" />
+      <Tile bottomText="Skype Preview" colorName="#12A5F4" />
+      <Tile padText={false} imgSrc="https://pbs.twimg.com/profile_images/562466745340817408/_nIu8KHX.jpeg" />
     </Row>
   </div>;
 
