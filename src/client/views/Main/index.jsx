@@ -4,6 +4,7 @@ import Row from '../../components/Row';
 import Tileset from '../../components/Tileset';
 
 import TodaysDateTile from '../../components/hocTiles/TodaysDateTile';
+import MailTile from '../../components/hocTiles/MailTile';
 import './style.scss';
 
 const MainView = () =>
@@ -11,10 +12,7 @@ const MainView = () =>
     <Tileset>
       <Row>
         <TodaysDateTile />
-        <Tile columnCount={2} centerText={false}>
-          <div className="tiles-tile-content-header">Smashing Magazine</div>
-          <div>Smasing Newsletter #177: Sketch On Windows, CSS and Chatbots</div>
-        </Tile>
+        <MailTile />
       </Row>
       <Row>
         <Tile columnCount={2} bottomText="Microsoft Edge">
