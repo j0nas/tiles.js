@@ -6,6 +6,7 @@ import Tileset from '../../components/Tileset';
 import DateTile from '../../components/hocTiles/DateTile';
 import MailTile from '../../components/hocTiles/MailTile';
 import WeatherTile from '../../components/hocTiles/WeatherTile';
+import ImgurTile from '../../components/hocTiles/ImgurTile';
 import './style.scss';
 
 const MainView = () =>
@@ -34,11 +35,7 @@ const MainView = () =>
         <Tile bottomText="Telefonassistent" />
         <MailTile />
       </Row>
-      <Row>
-        <Tile bottomText="Store" />
-        <Tile bottomText="Skype Preview" colorName="#12A5F4" />
-        <Tile padText={false} imgSrc="https://pbs.twimg.com/profile_images/562466745340817408/_nIu8KHX.jpeg" />
-      </Row>
+      <ImgurTile />
     </Tileset>
     <Tileset>
       <Row>
@@ -74,12 +71,6 @@ const MainView = () =>
         <Tile bottomText="Skaff deg Offi..." colorName="#EC4818" />
       </Row>
     </Tileset>
-    <Tile
-      columnCount={3}
-      rowCount={3}
-      padText={false}
-      imgSrc="https://pbs.twimg.com/profile_images/562466745340817408/_nIu8KHX.jpeg"
-    />
   </div>;
 
 
