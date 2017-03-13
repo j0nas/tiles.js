@@ -13,7 +13,8 @@ const MainView = () =>
     <Tileset>
       <Row>
         <DateTile />
-        <MailTile />
+        <WeatherTile />
+        <Tile bottomText="Twitter" colorName="#4099FF" />
       </Row>
       <Row>
         <Tile columnCount={2} bottomText="Microsoft Edge">
@@ -30,9 +31,8 @@ const MainView = () =>
         />
       </Row>
       <Row>
-        <WeatherTile />
         <Tile bottomText="Telefonassistent" />
-        <Tile bottomText="Twitter" colorName="#4099FF" />
+        <MailTile />
       </Row>
       <Row>
         <Tile bottomText="Store" />
@@ -74,6 +74,12 @@ const MainView = () =>
         <Tile bottomText="Skaff deg Offi..." colorName="#EC4818" />
       </Row>
     </Tileset>
+    <Tile
+      columnCount={3}
+      rowCount={3}
+      padText={false}
+      imgSrc="https://pbs.twimg.com/profile_images/562466745340817408/_nIu8KHX.jpeg"
+    />
   </div>;
 
 

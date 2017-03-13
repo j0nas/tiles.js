@@ -6,6 +6,7 @@ import './style.scss';
 const Tile = ({
   children,
   columnCount,
+  rowCount,
   centerText,
   padText,
   imgSrc,
@@ -17,6 +18,7 @@ const Tile = ({
   const classes = classNames({
     'tiles-tile': true,
     [`tiles-tile-col-${columnCount}`]: true,
+    [`tiles-tile-row-${rowCount}`]: true,
     'tiles-tile-center-text': centerText,
     'tiles-tile-pad-text': padText,
     'tiles-tile-default-color': !colorName,
@@ -34,6 +36,7 @@ const Tile = ({
 Tile.propTypes = {
   children: React.PropTypes.node,
   columnCount: React.PropTypes.number,
+  rowCount: React.PropTypes.number,
   centerText: React.PropTypes.bool,
   padText: React.PropTypes.bool,
   imgSrc: React.PropTypes.string,
@@ -44,6 +47,7 @@ Tile.propTypes = {
 
 Tile.defaultProps = {
   columnCount: 1,
+  rowCount: 1,
   centerText: true,
   padText: true,
   imgSrc: '',
