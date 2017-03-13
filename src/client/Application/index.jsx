@@ -8,6 +8,7 @@ import { middleware as reduxPackMiddleware } from 'redux-pack';
 import { BrowserRouter, Route } from 'react-router-dom';
 import rootReducer from '../reducers';
 import MainView from '../views/Main';
+import AwwView from '../views/Aww';
 
 const reduxMiddleware = applyMiddleware(thunk, reduxPackMiddleware);
 
@@ -25,7 +26,8 @@ const reactRoot = (
     <AppContainer>
       <BrowserRouter>
         <div>
-          <Route exact path="/" render={() => <MainView />} />
+          <Route exact path="/main" render={() => <MainView />} />
+          <Route exact path="/" render={() => <AwwView subreddit="aww" />} />
         </div>
       </BrowserRouter>
     </AppContainer>

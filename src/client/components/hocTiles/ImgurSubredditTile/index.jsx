@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Tile from '../../Tile';
 
-export default class ImgurTile extends Component {
+
+class ImgurSubredditTile extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -9,36 +10,21 @@ export default class ImgurTile extends Component {
       images: [],
     };
 
-    this.refreshImage = this.refreshImage.bind(this);
     this.fetchImages = this.fetchImages.bind(this);
   }
 
   componentWillMount() {
-    this.refreshImage();
+    this.fetchImages();
   }
 
   fetchImages() {
-    fetch('https://api.imgur.com/3/gallery/hot/viral/0.json', {
+    fetch(`https://api.imgur.com/3/gallery/r/${this.props.subreddit}/top`, {
       Authorization: 'Client-ID 04c2fb7859a68ba',
     })
     .then(res => res.json())
     .then(res => this.setState({
-      images: res.data.filter(data => data.link.includes('i.') && !data.link.includes('gif')),
+      images: res.data.filter(data => !data.is_album && !data.link.includes('gif')),
     }));
-  }
-
-  refreshImage() {
-    if (this.state.imageIndex + 1 < this.state.images.length) {
-      this.setState({
-        imageIndex: this.state.imageIndex + 1,
-      });
-    } else {
-      this.setState({
-        imageIndex: 0,
-      }, () => this.fetchImages());
-    }
-
-    setTimeout(this.refreshImage, 1000 * 30);
   }
 
   render() {
@@ -50,3 +36,9 @@ export default class ImgurTile extends Component {
     />);
   }
 }
+
+ImgurSubredditTile.propTypes = {
+  subreddit: React.PropTypes.string.isRequired,
+};
+
+export default ImgurSubredditTile;
