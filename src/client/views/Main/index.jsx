@@ -6,8 +6,9 @@ import Tileset from '../../components/Tileset';
 import DateTile from '../../components/hocTiles/DateTile';
 import MailTile from '../../components/hocTiles/MailTile';
 import WeatherTile from '../../components/hocTiles/WeatherTile';
-import ImgurTile from '../../components/hocTiles/ImgurTile';
-import ImgurSubredditTile from '../../components/hocTiles/ImgurSubredditTile';
+// import ImgurTile from '../../components/hocTiles/ImgurTile';
+// import ImgurSubredditTile from '../../components/hocTiles/ImgurSubredditTile';
+import XkcdTile from '../../components/hocTiles/XkcdTile';
 import './style.scss';
 
 const MainView = () =>
@@ -36,8 +37,9 @@ const MainView = () =>
         <Tile bottomText="Telefonassistent" />
         <MailTile />
       </Row>
-      <ImgurTile />
-      <ImgurSubredditTile subreddit="aww" />
+      <Row>
+        <XkcdTile />
+      </Row>
     </Tileset>
     <Tileset>
       <Row>

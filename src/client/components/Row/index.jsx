@@ -5,7 +5,10 @@ const Row = ({ children }) =>
   <div className="tiles-row">{children}</div>;
 
 Row.propTypes = {
-  children: React.PropTypes.arrayOf(React.PropTypes.node).isRequired,
+  children: React.PropTypes.oneOfType([
+    React.PropTypes.arrayOf(React.PropTypes.node),
+    React.PropTypes.node,
+  ]).isRequired,
 };
 
 export default Row;

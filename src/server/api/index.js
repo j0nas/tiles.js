@@ -1,11 +1,11 @@
 const express = require('express');
+const fetch = require('node-fetch');
 const router = express.Router();
 
-router.get('/', (req, res) =>
-    res.send('Hello, world!'));
-
-const searchParam = 'search';
-router.get('/:' + searchParam, (req, res) =>
-    setTimeout(() => res.json("Delayed response with received value: " + req.params[searchParam] + "ms"), req.params[searchParam]));
+router.get('/xkcd', (req, res) =>
+  fetch('http://xkcd.com/info.0.json')
+    .then(xkcdResponse => xkcdResponse.json())
+    .then(xkcdResponse => res.json(xkcdResponse))
+    .catch(err => res.sendStatus(500)));
 
 module.exports = router;

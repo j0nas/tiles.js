@@ -26,8 +26,8 @@ const reactRoot = (
     <AppContainer>
       <BrowserRouter>
         <div>
-          <Route exact path="/main" render={() => <MainView />} />
-          <Route exact path="/" render={() => <AwwView subreddit="aww" />} />
+          <Route exact path="/" render={() => <MainView />} />
+          <Route exact path="/aww" render={() => <AwwView subreddit="aww" />} />
         </div>
       </BrowserRouter>
     </AppContainer>
