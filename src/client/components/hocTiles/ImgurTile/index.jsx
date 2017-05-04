@@ -1,52 +1,86 @@
-import React, { Component } from 'react';
-import Tile from '../../Tile';
+import React from "react";
 
-export default class ImgurTile extends Component {
+const mapTypeToClass = type => {
+  const info = "alert alert-info";
+  const types = {
+    "success": "alert alert-success",
+    "message": info,
+    "caution": "alert alert-warning",
+    "error": "alert alert-danger"
+  };
+
+  return types[type] || info;
+};
+
+const Notification = ({type, children}) =>
+  <div className={mapTypeToClass(type)}>{children}</div>;
+
+class Confirmation extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      imageIndex: 0,
-      images: [],
+      visible: true
     };
 
-    this.refreshImage = this.refreshImage.bind(this);
-    this.fetchImages = this.fetchImages.bind(this);
+    this.buttonClick = this.buttonClick.bind(this);
   }
 
-  componentWillMount() {
-    this.refreshImage();
-  }
-
-  fetchImages() {
-    fetch('https://api.imgur.com/3/gallery/hot/viral/0.json', {
-      Authorization: 'Client-ID 04c2fb7859a68ba',
-    })
-    .then(res => res.json())
-    .then(res => this.setState({
-      images: res.data.filter(data => data.link.includes('i.') && !data.link.includes('gif')),
-    }));
-  }
-
-  refreshImage() {
-    if (this.state.imageIndex + 1 < this.state.images.length) {
-      this.setState({
-        imageIndex: this.state.imageIndex + 1,
-      });
-    } else {
-      this.setState({
-        imageIndex: 0,
-      }, () => this.fetchImages());
-    }
-
-    setTimeout(this.refreshImage, 1000 * 30);
+  buttonClick(callback) {
+    this.setState({visible: false}, () => callback && callback());
   }
 
   render() {
-    return (<Tile
-      columnCount={3}
-      rowCount={3}
-      padText={false}
-      imgSrc={this.state.images[this.state.imageIndex] && this.state.images[this.state.imageIndex].link}
-    />);
+    const {message, type, accept, decline} = this.props;
+    const renderComponent = message && this.state.visible;
+    return (
+      renderComponent
+        ? <Notification type={type}>
+          <p>{message}</p>
+          <div onClick={() => this.buttonClick(accept)} className="btn btn-primary">Sure</div>
+          <div onClick={() => this.buttonClick(decline)} className="btn btn-danger">No Thanks</div>
+        </Notification>
+        : null
+    );
   }
 }
+
+class QuestionContainer extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      displayQuestion: false,
+    }
+
+    this.showQuestion = this.showQuestion.bind(this);
+  }
+
+  showQuestion() {
+    this.setState({displayQuestion: true});
+  }
+
+  render() {
+    const {question, answer} = this.props;
+    console.log("test", question, answer);
+    return (
+      <div className="container">
+        <p className="question">{question}</p>
+        <div className="btn btn-primary show-answer" onClick={this.showQuestion}>Show Answer</div>
+        {this.state.displayQuestion
+          ? <Notification type="info">
+            <div className="btn btn-primary show-answer">Show Answer</div>
+          </Notification>
+          : null}
+      </div>
+    )
+  }
+}
+
+const QuestionList = ({questions}) =>
+  <div>
+    {questions.map(question => <QuestionContainer {...question} />)}
+  </div>
+
+const App = props =>
+  <div id="app">
+    <QuestionList {...props} />
+  </div>;
